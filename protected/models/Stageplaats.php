@@ -12,6 +12,14 @@
  * @property integer $Aantal
  * @property string $Jaar
  * @property string $Richting
+ * @property string $Periode
+ * @property integer $Vrijeplaatsen
+ * @property string $Goedgekeurd
+ *
+ * The followings are the available model relations:
+ * @property Stageaanvraag[] $stageaanvraags
+ * @property Begeleider $begeleider
+ * @property Bedrijf $bedrijf
  */
 class Stageplaats extends CActiveRecord
 {
@@ -31,14 +39,16 @@ class Stageplaats extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting', 'required'),
-			array('BegeleiderID, BedrijfID, Aantal', 'numerical', 'integerOnly'=>true),
+			array('BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode', 'required'),
+			array('BegeleiderID, BedrijfID, Aantal, Vrijeplaatsen', 'numerical', 'integerOnly'=>true),
 			array('Titel, Richting', 'length', 'max'=>50),
 			array('Omschrijving', 'length', 'max'=>100),
 			array('Jaar', 'length', 'max'=>4),
+			array('Periode', 'length', 'max'=>20),
+			array('Goedgekeurd', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('StageID, BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting', 'safe', 'on'=>'search'),
+			array('StageID, BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode, Vrijeplaatsen, Goedgekeurd', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +60,9 @@ class Stageplaats extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'stageaanvraags' => array(self::HAS_MANY, 'Stageaanvraag', 'StageID'),
+			'begeleider' => array(self::BELONGS_TO, 'Begeleider', 'BegeleiderID'),
+			'bedrijf' => array(self::BELONGS_TO, 'Bedrijf', 'BedrijfID'),
 		);
 	}
 
@@ -67,6 +80,9 @@ class Stageplaats extends CActiveRecord
 			'Aantal' => 'Aantal',
 			'Jaar' => 'Jaar',
 			'Richting' => 'Richting',
+			'Periode' => 'Periode',
+			'Vrijeplaatsen' => 'Vrijeplaatsen',
+			'Goedgekeurd' => 'Goedgekeurd',
 		);
 	}
 
@@ -96,6 +112,9 @@ class Stageplaats extends CActiveRecord
 		$criteria->compare('Aantal',$this->Aantal);
 		$criteria->compare('Jaar',$this->Jaar,true);
 		$criteria->compare('Richting',$this->Richting,true);
+		$criteria->compare('Periode',$this->Periode,true);
+		$criteria->compare('Vrijeplaatsen',$this->Vrijeplaatsen);
+		$criteria->compare('Goedgekeurd',$this->Goedgekeurd,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

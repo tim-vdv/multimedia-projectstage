@@ -37,18 +37,19 @@
 <div class="container">
 
 	<header id="navtop">
-		<a href="#" class="logo fleft">
-			<img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logo.png" alt="Designa Studio">
+		<a href="index.php" class="logo fleft">
+			<img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logo.png" alt="Hogent Stages">
 		</a>
 		
 		<nav class="fright">
 				<?php $this->widget('zii.widgets.CMenu',array(
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/site/index')),
-						array('label'=>'Stages', 'url'=>array('stageplaats/index', 'view'=>'stageplaats')),
-						array('label'=>'Contact', 'url'=>array('/site/contact')),
-						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+						array('label'=>'Overzicht', 'url'=>array('stageplaats/index', 'view'=>'stageplaats')),
+                                                array('label'=>'Aanvraag', 'url'=>array('stageplaats/create')),	
+                                                array('label'=>'Contact', 'url'=>array('/site/contact')),
+						array('label'=>'Aanmelden', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					),
 				)); ?>
 		</nav>
@@ -79,10 +80,11 @@
 				<?php $this->widget('zii.widgets.CMenu',array(
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/site/index')),
-						array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-						array('label'=>'Contact', 'url'=>array('/site/contact')),
-						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+						array('label'=>'Overzicht', 'url'=>array('stageplaats/index', 'view'=>'stageplaats')),
+						array('label'=>'Aanvraag', 'url'=>array('/site/contact')),
+                                                array('label'=>'Contact', 'url'=>array('stageplaats/create')),
+						array('label'=>'Aanmelden', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					),
 				)); ?>
 		</nav>

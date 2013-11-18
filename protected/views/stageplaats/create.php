@@ -3,16 +3,15 @@
 /* @var $model Stageplaats */
 
 $this->breadcrumbs=array(
-	'Stageplaats'=>array('index'),
-	'Create',
+	'Aanvraag',
 );
 
-$this->menu=array(
-	array('label'=>'List Stageplaats', 'url'=>array('index')),
-	array('label'=>'Manage Stageplaats', 'url'=>array('admin')),
-);
+//$this->menu=array(
+//	array('label'=>'List Stageplaats', 'url'=>array('index')),
+//	array('label'=>'Manage Stageplaats', 'url'=>array('admin')),
+//);
 ?>
 
-<h1>Create Stageplaats</h1>
+<h1>Vraag stageplaats aan</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

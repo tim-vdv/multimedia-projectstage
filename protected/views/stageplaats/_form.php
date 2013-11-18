@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Velden met <span class="required">*</span> zijn verplicht.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -48,11 +48,17 @@
 		<?php echo $form->textField($model,'Aantal'); ?>
 		<?php echo $form->error($model,'Aantal'); ?>
 	</div>
-
-	<div class="row">
+        
+       <div class="row">
 		<?php echo $form->labelEx($model,'Jaar'); ?>
 		<?php echo $form->textField($model,'Jaar',array('size'=>4,'maxlength'=>4)); ?>
 		<?php echo $form->error($model,'Jaar'); ?>
+	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'Periode'); ?>
+		<?php echo $form->textField($model,'Periode'); ?>
+		<?php echo $form->error($model,'Periode'); ?>
 	</div>
 
 	<div class="row">
@@ -62,7 +68,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Bevestig' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

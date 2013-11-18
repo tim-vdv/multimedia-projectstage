@@ -3,47 +3,29 @@
 /* @var $data Stageplaats */
 ?>
 
-<div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('StageID')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->StageID), array('view', 'id'=>$data->StageID)); ?>
-	<br />
+<details><summary><h7><?php echo CHtml::encode($data->Titel); ?> (<?php echo CHtml::encode($data->bedrijf->Gemeente); ?>)</h7></summary><br/>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('BegeleiderID')); ?>:</b>
-	<?php echo CHtml::encode($data->BegeleiderID); ?>
-	<br />
+            <?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$data,
+	'attributes'=>array(
+                array(
+                   'label'=>'Bedrijf',
+                   'value'=>$data->bedrijf->Naam,
+                 ),
+                array(
+                   'label'=>'Regio',
+                   'value'=>$data->bedrijf->Gemeente,
+                 ),
+		'Omschrijving',
+            	'Richting',
+		'Jaar',
+                'Periode',
+            	'Aantal',
+                'Vrijeplaatsen',
+                'Goedgekeurd',
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('BedrijfID')); ?>:</b>
-	<?php echo CHtml::encode($data->BedrijfID); ?>
-	<br />
+	),
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Titel')); ?>:</b>
-	<?php echo CHtml::encode($data->Titel); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Omschrijving')); ?>:</b>
-	<?php echo CHtml::encode($data->Omschrijving); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Aantal')); ?>:</b>
-	<?php echo CHtml::encode($data->Aantal); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Jaar')); ?>:</b>
-	<?php echo CHtml::encode($data->Jaar); ?>
-	<br />
-        
-        <b><?php echo CHtml::encode($data->getAttributeLabel('Richting')); ?>:</b>
-	<?php echo CHtml::encode($data->Richting); ?>
-	<br />
-        
-        <button>Test</button><br/><br/>
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Richting')); ?>:</b>
-	<?php echo CHtml::encode($data->Richting); ?>
-	<br />
-
-	*/?>
-
-</div>
+    <button style=" float: right">Download printversie</button><br/><br/></details>

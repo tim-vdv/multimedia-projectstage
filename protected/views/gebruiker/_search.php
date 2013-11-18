@@ -38,7 +38,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'Wachtwoord'); ?>
-		<?php echo $form->textField($model,'Wachtwoord'); ?>
+		<?php echo $form->textField($model,'Wachtwoord',array('size'=>20,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row buttons">

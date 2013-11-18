@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Velden met <span class="required">*</span> zijn verplicht.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -45,13 +45,20 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'Wachtwoord'); ?>
-		<?php echo $form->textField($model,'Wachtwoord'); ?>
+		<?php echo $form->passwordField($model,'Wachtwoord',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'Wachtwoord'); ?>
 	</div>
+        
+       <div class="row">
+		<?php echo $form->labelEx($model,'Account'); ?>
+                <?php echo CHtml::dropDownList('listname', '', array('1' => 'Student', '2' => 'Coordinator', '3' => 'Begeleider'));?>
+	</div><br/>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Registreer' : 'Save'); ?>
 	</div>
+        
+        
 
 <?php $this->endWidget(); ?>
 
