@@ -63,17 +63,38 @@ class GebruikerController extends Controller
 	public function actionCreate()
 	{
 		$model=new Gebruiker;
+                $modelStudent = new Student;
+                $modelCoordinator = new Coordinator;
+                $modelBegeleider = new Begeleider;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Gebruiker']))
 		{
-			$model->attributes=$_POST['Gebruiker'];
-			if($model->save())
-//				$this->redirect(array('view','id'=>$model->GebruikerID));
+                        $model->attributes=$_POST['Gebruiker'];
+			if($model->save()){
+                             if($_POST['Gebruiker']['Account'] === "Student"){
+                                $modelStudent->GebruikerID = $model->getPrimaryKey();
+                                $modelStudent->AfstudeerRichting = "Programmeren";
+                                $modelStudent->save();
+                             }
+                             if($_POST['Gebruiker']['Account'] === "Coördinator"){
+                                $modelCoordinator->GebruikerID = $model->getPrimaryKey();
+                                $modelCoordinator->save();
+                             }                             
+                             if($_POST['Gebruiker']['Account'] === "Begeleider"){
+                                $modelBegeleider->GebruikerID = $model->getPrimaryKey();
+                                $modelBegeleider->BedrijfID = 1;
+                                $modelBegeleider->Functie = " ";
+                                $modelBegeleider->NietBeschikbaar = " ";
+                                $modelBegeleider->save();
+                             }
+                             
                             $this->redirect(array('site/login'));
-		}
+                            }
+                        
+                 }
 
 		$this->render('create',array(
 			'model'=>$model,

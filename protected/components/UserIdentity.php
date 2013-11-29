@@ -23,8 +23,8 @@ class UserIdentity extends CUserIdentity
         
        else
        {  
-          $this->_id=$record['Email'];
-           $this->setState('title', $record['Email']);
+          $this->_id=$record['GebruikerID'];
+           //$this->setState('title', $record['Email']);
            $this->errorCode=self::ERROR_NONE;
 
        }

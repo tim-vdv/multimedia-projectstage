@@ -35,12 +35,12 @@ class Gebruiker extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('VoorNaam, FamNaam, Email, Telefoon, Wachtwoord', 'required'),
+			array('VoorNaam, FamNaam, Email, Telefoon, Wachtwoord, Account', 'required'),
 			array('VoorNaam, FamNaam, Email', 'length', 'max'=>50),
 			array('Telefoon, Wachtwoord', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('GebruikerID, VoorNaam, FamNaam, Email, Telefoon, Wachtwoord', 'safe', 'on'=>'search'),
+			array('GebruikerID, VoorNaam, FamNaam, Email, Telefoon, Wachtwoord, Account', 'safe', 'on'=>'search'),
 		);
 	}
 

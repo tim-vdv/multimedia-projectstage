@@ -15,6 +15,20 @@
  * @property string $Periode
  * @property integer $Vrijeplaatsen
  * @property string $Goedgekeurd
+ * @property string $Hardware
+ * @property string $Beheerssysteem
+ * @property string $DBMS
+ * @property string $Programmeertaal
+ * @property string $Casetool
+ * @property string $Ontwikkelingstool
+ * @property string $MethodiekAnalyse
+ * @property string $MethodiekProgLogica
+ * @property string $ConfHardware
+ * @property string $Netwerkprotocols
+ * @property string $GebruikteGL
+ * @property string $OplOnderwerp
+ * @property string $OplWanneer
+ * @property string $oplHoeLang
  *
  * The followings are the available model relations:
  * @property Stageaanvraag[] $stageaanvraags
@@ -39,16 +53,16 @@ class Stageplaats extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode', 'required'),
+			array('BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode, Vrijeplaatsen, Goedgekeurd', 'required'),
 			array('BegeleiderID, BedrijfID, Aantal, Vrijeplaatsen', 'numerical', 'integerOnly'=>true),
-			array('Titel, Richting', 'length', 'max'=>50),
+			array('Titel, Richting, Hardware, Beheerssysteem, DBMS, Programmeertaal, Casetool, Ontwikkelingstool, MethodiekAnalyse, MethodiekProgLogica, ConfHardware, Netwerkprotocols, GebruikteGL, OplOnderwerp, OplWanneer, oplHoeLang', 'length', 'max'=>50),
 			array('Omschrijving', 'length', 'max'=>100),
-			array('Jaar', 'length', 'max'=>4),
+			array('Jaar', 'length', 'max'=>15),
 			array('Periode', 'length', 'max'=>20),
 			array('Goedgekeurd', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('StageID, BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode, Vrijeplaatsen, Goedgekeurd', 'safe', 'on'=>'search'),
+			array('StageID, BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode, Vrijeplaatsen, Goedgekeurd, Hardware, Beheerssysteem, DBMS, Programmeertaal, Casetool, Ontwikkelingstool, MethodiekAnalyse, MethodiekProgLogica, ConfHardware, Netwerkprotocols, GebruikteGL, OplOnderwerp, OplWanneer, oplHoeLang', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,13 +90,27 @@ class Stageplaats extends CActiveRecord
 			'BegeleiderID' => 'Begeleider',
 			'BedrijfID' => 'Bedrijf',
 			'Titel' => 'Titel',
-			'Omschrijving' => 'Omschrijving',
-			'Aantal' => 'Aantal',
-			'Jaar' => 'Jaar',
-			'Richting' => 'Richting',
-			'Periode' => 'Periode',
-			'Vrijeplaatsen' => 'Vrijeplaatsen',
+			'Omschrijving' => 'Omschrijving project of soort toepassing',
+			'Aantal' => 'Aantal studenten',
+			'Jaar' => 'Academiejaar',
+			'Richting' => 'Speciallisatie richting',
+			'Periode' => 'Stageperiode',
+			'Vrijeplaatsen' => 'Aantal vrijeplaatsen',
 			'Goedgekeurd' => 'Goedgekeurd',
+			'Hardware' => 'Hardware',
+			'Beheerssysteem' => 'Beheerssysteem',
+			'DBMS' => 'DBMS',
+			'Programmeertaal' => 'Programmeertaal',
+			'Casetool' => 'Casetool',
+			'Ontwikkelingstool' => 'Ontwikkelingstool',
+			'MethodiekAnalyse' => 'Methodiek voor de analyse',
+			'MethodiekProgLogica' => 'Methodiek voor de programmeerlogica',
+			'ConfHardware' => 'Configuratie hardware',
+			'Netwerkprotocols' => 'Type netwerkprotocols (netware, lanmanager, TCP/IP, Banyan)',
+			'GebruikteGL' => 'Gebruikte 3GL & 4GL’s',
+			'OplOnderwerp' => 'Onderwerp',
+			'OplWanneer' => 'Wanneer',
+			'oplHoeLang' => 'Hoe lang',
 		);
 	}
 
@@ -115,6 +143,20 @@ class Stageplaats extends CActiveRecord
 		$criteria->compare('Periode',$this->Periode,true);
 		$criteria->compare('Vrijeplaatsen',$this->Vrijeplaatsen);
 		$criteria->compare('Goedgekeurd',$this->Goedgekeurd,true);
+		$criteria->compare('Hardware',$this->Hardware,true);
+		$criteria->compare('Beheerssysteem',$this->Beheerssysteem,true);
+		$criteria->compare('DBMS',$this->DBMS,true);
+		$criteria->compare('Programmeertaal',$this->Programmeertaal,true);
+		$criteria->compare('Casetool',$this->Casetool,true);
+		$criteria->compare('Ontwikkelingstool',$this->Ontwikkelingstool,true);
+		$criteria->compare('MethodiekAnalyse',$this->MethodiekAnalyse,true);
+		$criteria->compare('MethodiekProgLogica',$this->MethodiekProgLogica,true);
+		$criteria->compare('ConfHardware',$this->ConfHardware,true);
+		$criteria->compare('Netwerkprotocols',$this->Netwerkprotocols,true);
+		$criteria->compare('GebruikteGL',$this->GebruikteGL,true);
+		$criteria->compare('OplOnderwerp',$this->OplOnderwerp,true);
+		$criteria->compare('OplWanneer',$this->OplWanneer,true);
+		$criteria->compare('oplHoeLang',$this->oplHoeLang,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

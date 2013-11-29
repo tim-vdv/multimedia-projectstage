@@ -51,7 +51,7 @@
         
        <div class="row">
 		<?php echo $form->labelEx($model,'Account'); ?>
-                <?php echo CHtml::dropDownList('listname', '', array('1' => 'Student', '2' => 'Coordinator', '3' => 'Begeleider'));?>
+               <?php echo $form->dropDownList($model,'Account',array('Student'=>'Student','Coördinator'=>'Coördinator','Begeleider'=>'Begeleider')); ?>
 	</div><br/>
 
 	<div class="row buttons">

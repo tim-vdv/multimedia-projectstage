@@ -7,6 +7,8 @@
  * @property integer $BegeleiderID
  * @property integer $GebruikerID
  * @property integer $BedrijfID
+ * @property string $Functie
+ * @property string $NietBeschikbaar
  *
  * The followings are the available model relations:
  * @property Gebruiker $gebruiker
@@ -33,9 +35,10 @@ class Begeleider extends CActiveRecord
 		return array(
 			array('GebruikerID, BedrijfID', 'required'),
 			array('GebruikerID, BedrijfID', 'numerical', 'integerOnly'=>true),
+			array('Functie, NietBeschikbaar', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('BegeleiderID, GebruikerID, BedrijfID', 'safe', 'on'=>'search'),
+			array('BegeleiderID, GebruikerID, BedrijfID, Functie, NietBeschikbaar', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,6 +65,8 @@ class Begeleider extends CActiveRecord
 			'BegeleiderID' => 'Begeleider',
 			'GebruikerID' => 'Gebruiker',
 			'BedrijfID' => 'Bedrijf',
+			'Functie' => 'Functie',
+			'NietBeschikbaar' => 'De stagementor is beschikbaar tijdens de stageperiode, behalve:',
 		);
 	}
 
@@ -86,6 +91,8 @@ class Begeleider extends CActiveRecord
 		$criteria->compare('BegeleiderID',$this->BegeleiderID);
 		$criteria->compare('GebruikerID',$this->GebruikerID);
 		$criteria->compare('BedrijfID',$this->BedrijfID);
+		$criteria->compare('Functie',$this->Functie,true);
+		$criteria->compare('NietBeschikbaar',$this->NietBeschikbaar,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

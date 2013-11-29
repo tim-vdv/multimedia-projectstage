@@ -10,6 +10,11 @@
  * @property string $Postcode
  * @property string $Gemeente
  * @property string $Land
+ * @property integer $Tel
+ * @property integer $Fax
+ * @property string $Website
+ * @property integer $AantalPersoneel
+ * @property integer $Bereikbaarheid
  *
  * The followings are the available model relations:
  * @property Begeleider[] $begeleiders
@@ -34,12 +39,13 @@ class Bedrijf extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('Naam, Adres, Postcode, Gemeente, Land', 'required'),
-			array('Naam, Gemeente, Land', 'length', 'max'=>50),
+			array('', 'numerical', 'integerOnly'=>true),
+			array('Naam, Gemeente, Land, Website', 'length', 'max'=>50),
 			array('Adres', 'length', 'max'=>100),
 			array('Postcode', 'length', 'max'=>5),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('BedrijfID, Naam, Adres, Postcode, Gemeente, Land', 'safe', 'on'=>'search'),
+			array('BedrijfID, Naam, Adres, Postcode, Gemeente, Land, Tel, Fax, Website, AantalPersoneel, Bereikbaarheid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +74,11 @@ class Bedrijf extends CActiveRecord
 			'Postcode' => 'Postcode',
 			'Gemeente' => 'Gemeente',
 			'Land' => 'Land',
+			'Tel' => 'Telefoon',
+			'Fax' => 'Fax',
+			'Website' => 'Website',
+			'AantalPersoneel' => 'Aantal personeelsleden in het bedrijf',
+			'Bereikbaarheid' => 'Bereikbaarheid bedrijf (Trein, Bus, Auto)',
 		);
 	}
 
@@ -95,6 +106,11 @@ class Bedrijf extends CActiveRecord
 		$criteria->compare('Postcode',$this->Postcode,true);
 		$criteria->compare('Gemeente',$this->Gemeente,true);
 		$criteria->compare('Land',$this->Land,true);
+		$criteria->compare('Tel',$this->Tel);
+		$criteria->compare('Fax',$this->Fax);
+		$criteria->compare('Website',$this->Website,true);
+		$criteria->compare('AantalPersoneel',$this->AantalPersoneel);
+		$criteria->compare('Bereikbaarheid',$this->Bereikbaarheid);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
