@@ -8,6 +8,7 @@
 class UserIdentity extends CUserIdentity
 {
    private $_id;
+ 
    public function authenticate()
    {
        $record= Gebruiker::model()->findByAttributes(array('Email'=>$this->username));  // here I use Email as user name which comes from database
@@ -24,7 +25,8 @@ class UserIdentity extends CUserIdentity
        else
        {  
           $this->_id=$record['GebruikerID'];
-           //$this->setState('title', $record['Email']);
+          Yii::app()->getUser()->setState('account',$record['Account']);
+           $this->setState('account', $record['Account']);
            $this->errorCode=self::ERROR_NONE;
 
        }
@@ -35,4 +37,5 @@ class UserIdentity extends CUserIdentity
    {
        return $this->_id;
    }
+
 }

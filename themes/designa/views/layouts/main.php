@@ -49,7 +49,9 @@
                                                 array('label'=>'Aanvraag', 'url'=>array('stageplaats/create')),	
                                                 array('label'=>'Contact', 'url'=>array('/site/contact')),
 						array('label'=>'Aanmelden', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                                array('label'=>'Admin', 'url'=>array('/adminpage'), 'visible'=>Yii::app()->getUser()->getState('account') =='Coördinator')
+                                            
 					),
 				)); ?>
 		</nav>
