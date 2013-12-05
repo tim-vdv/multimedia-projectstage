@@ -3,9 +3,9 @@
 /* @var $model Student */
 
 $this->breadcrumbs=array(
-	'Students'=>array('index'),
-	$model->StudentID=>array('view','id'=>$model->StudentID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Studenten'=>array('student/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Student <?php echo $model->StudentID; ?></h1>
+<h1>Bewerk student</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

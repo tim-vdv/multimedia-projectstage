@@ -90,12 +90,12 @@ class Stageplaats extends CActiveRecord
 			'BegeleiderID' => 'Begeleider',
 			'BedrijfID' => 'Bedrijf',
 			'Titel' => 'Titel',
-			'Omschrijving' => 'Omschrijving project of soort toepassing',
+			'Omschrijving' => 'Omschrijving',
 			'Aantal' => 'Aantal studenten',
 			'Jaar' => 'Academiejaar',
-			'Richting' => 'Speciallisatie richting',
+			'Richting' => 'Speciallisatie',
 			'Periode' => 'Stageperiode',
-			'Vrijeplaatsen' => 'Aantal vrijeplaatsen',
+			'Vrijeplaatsen' => 'Vrijeplaatsen',
 			'Goedgekeurd' => 'Goedgekeurd',
 			'Hardware' => 'Hardware',
 			'Beheerssysteem' => 'Beheerssysteem',
@@ -103,11 +103,11 @@ class Stageplaats extends CActiveRecord
 			'Programmeertaal' => 'Programmeertaal',
 			'Casetool' => 'Casetool',
 			'Ontwikkelingstool' => 'Ontwikkelingstool',
-			'MethodiekAnalyse' => 'Methodiek voor de analyse',
-			'MethodiekProgLogica' => 'Methodiek voor de programmeerlogica',
+			'MethodiekAnalyse' => 'Methodiek analyse',
+			'MethodiekProgLogica' => 'Methodiek programmeerlogica',
 			'ConfHardware' => 'Configuratie hardware',
-			'Netwerkprotocols' => 'Type netwerkprotocols (netware, lanmanager, TCP/IP, Banyan)',
-			'GebruikteGL' => 'Gebruikte 3GL & 4GL’s',
+			'Netwerkprotocols' => 'Type netwerkprotocols',
+			'GebruikteGL' => 'Gebruikte GL’s',
 			'OplOnderwerp' => 'Onderwerp',
 			'OplWanneer' => 'Wanneer',
 			'oplHoeLang' => 'Hoe lang',
@@ -131,7 +131,6 @@ class Stageplaats extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('StageID',$this->StageID);
 		$criteria->compare('BegeleiderID',$this->BegeleiderID);
 		$criteria->compare('BedrijfID',$this->BedrijfID);
@@ -160,6 +159,9 @@ class Stageplaats extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort' => array(
+                        'defaultOrder' => 'StageID DESC',
+    ),
 		));
 	}
 

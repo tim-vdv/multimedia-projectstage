@@ -3,9 +3,9 @@
 /* @var $model Bedrijf */
 
 $this->breadcrumbs=array(
-	'Bedrijfs'=>array('index'),
-	$model->BedrijfID=>array('view','id'=>$model->BedrijfID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Bedrijven'=>array('bedrijf/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Bedrijf <?php echo $model->BedrijfID; ?></h1>
+<h1>Bewerk bedrijf</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

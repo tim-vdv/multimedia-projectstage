@@ -32,11 +32,11 @@ class StageplaatsController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('index', 'view', 'create', 'update'),
+                'actions' => array('index', 'view', 'create'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete'),
+                'actions' => array('admin', 'delete','update'),
                 'expression'=>"Yii::app()->getUser()->getState('account') =='Coördinator'",
             ),
             array('deny', // deny all users
@@ -65,6 +65,7 @@ class StageplaatsController extends Controller {
         $modelBegeleider = new Begeleider;
         $modelBedrijf = new Bedrijf;
         $modelAanvraag = new Stageaanvraag;
+        $modelGebruiker->Account = "Begeleider";
         $model->Goedgekeurd = "Nee";
         $model->Vrijeplaatsen = "0";
 
@@ -92,7 +93,7 @@ class StageplaatsController extends Controller {
                             $modelAanvraag->GebruikerID = Yii::app()->user->id;
                             $modelAanvraag->StageID = $model->getPrimaryKey();
                             if ($modelAanvraag->save()) {
-                                $this->redirect(array('view', 'id' => $model->StageID));
+                                $this->redirect(array('stageplaats/index&view=stageplaats'));
                             }
                         }
 //                $modelAanvraag->attributes = $_POST['Stageaanvraag'];

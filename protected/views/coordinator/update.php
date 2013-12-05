@@ -3,9 +3,9 @@
 /* @var $model Coordinator */
 
 $this->breadcrumbs=array(
-	'Coordinators'=>array('index'),
-	$model->CoordinatorID=>array('view','id'=>$model->CoordinatorID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Coördinators'=>array('coordinator/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Coordinator <?php echo $model->CoordinatorID; ?></h1>
+<h1>Bewerk coördinator</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

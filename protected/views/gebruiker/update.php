@@ -3,9 +3,9 @@
 /* @var $model Gebruiker */
 
 $this->breadcrumbs=array(
-	'Gebruikers'=>array('index'),
-	$model->GebruikerID=>array('view','id'=>$model->GebruikerID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Gebruikers'=>array('gebruiker/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Gebruiker <?php echo $model->GebruikerID; ?></h1>
+<h1>Bewerk gebruiker</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

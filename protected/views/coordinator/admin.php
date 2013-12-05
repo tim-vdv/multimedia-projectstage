@@ -3,8 +3,8 @@
 /* @var $model Coordinator */
 
 $this->breadcrumbs=array(
-	'Coordinators'=>array('index'),
-	'Manage',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Coördinators',
 );
 
 $this->menu=array(
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Coordinators</h1>
+<h1>Beheer coördinators</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -43,12 +43,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'coordinator-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
 	'columns'=>array(
-		'CoordinatorID',
-		'GebruikerID',
-		array(
+            	array(
+                        'header'=>'Aanpassen',
 			'class'=>'CButtonColumn',
 		),
+		array(            
+                'name'=>'gebruiker.FamNaam',
+                 ),
+                 array(            
+                'name'=>'gebruiker.VoorNaam',
+                 ),
 	),
 )); ?>

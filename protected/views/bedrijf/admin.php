@@ -3,8 +3,8 @@
 /* @var $model Bedrijf */
 
 $this->breadcrumbs=array(
-	'Bedrijfs'=>array('index'),
-	'Manage',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Bedrijven',
 );
 
 $this->menu=array(
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Bedrijfs</h1>
+<h1>Beheer bedrijven</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -40,19 +40,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
+<div class="CGridViewContainer">
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'bedrijf-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
 	'columns'=>array(
-		'BedrijfID',
+            	array(
+                        'header'=>'Aanpassen',
+			'class'=>'CButtonColumn',
+		),
 		'Naam',
 		'Adres',
 		'Postcode',
 		'Gemeente',
 		'Land',
-		array(
-			'class'=>'CButtonColumn',
-		),
+		'Tel',
+		'Fax',
+		'Website',
+ 		'AantalPersoneel',
+		'Bereikbaarheid',           
 	),
 )); ?>
+</div>

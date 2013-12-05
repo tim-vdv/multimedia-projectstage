@@ -3,9 +3,9 @@
 /* @var $model Stageplaats */
 
 $this->breadcrumbs=array(
-	'Stageplaats'=>array('index'),
-	$model->StageID=>array('view','id'=>$model->StageID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Stageaanvragen'=>array('stageplaats/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Stageplaats <?php echo $model->StageID; ?></h1>
+<h1>Bewerk stageplaats</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_formupdate', array('model'=>$model)); ?>

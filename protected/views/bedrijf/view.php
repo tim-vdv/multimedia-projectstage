@@ -3,8 +3,9 @@
 /* @var $model Bedrijf */
 
 $this->breadcrumbs=array(
-	'Bedrijfs'=>array('index'),
-	$model->BedrijfID,
+	'Admin'=>array('site/page&view=adminpage'),
+	'Bedrijven'=>array('bedrijf/admin'),
+	'Details',
 );
 
 $this->menu=array(
@@ -16,7 +17,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Bedrijf #<?php echo $model->BedrijfID; ?></h1>
+<h1>Details bedrijf</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

@@ -10,11 +10,11 @@
  * @property string $Postcode
  * @property string $Gemeente
  * @property string $Land
- * @property integer $Tel
- * @property integer $Fax
+ * @property string $Tel
+ * @property string $Fax
  * @property string $Website
- * @property integer $AantalPersoneel
- * @property integer $Bereikbaarheid
+ * @property string $AantalPersoneel
+ * @property string $Bereikbaarheid
  *
  * The followings are the available model relations:
  * @property Begeleider[] $begeleiders
@@ -39,10 +39,10 @@ class Bedrijf extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('Naam, Adres, Postcode, Gemeente, Land', 'required'),
-			array('', 'numerical', 'integerOnly'=>true),
 			array('Naam, Gemeente, Land, Website', 'length', 'max'=>50),
 			array('Adres', 'length', 'max'=>100),
 			array('Postcode', 'length', 'max'=>5),
+			array('Tel, Fax, AantalPersoneel, Bereikbaarheid', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('BedrijfID, Naam, Adres, Postcode, Gemeente, Land, Tel, Fax, Website, AantalPersoneel, Bereikbaarheid', 'safe', 'on'=>'search'),
@@ -74,11 +74,11 @@ class Bedrijf extends CActiveRecord
 			'Postcode' => 'Postcode',
 			'Gemeente' => 'Gemeente',
 			'Land' => 'Land',
-			'Tel' => 'Telefoon',
+			'Tel' => 'Tel',
 			'Fax' => 'Fax',
 			'Website' => 'Website',
-			'AantalPersoneel' => 'Aantal personeelsleden in het bedrijf',
-			'Bereikbaarheid' => 'Bereikbaarheid bedrijf (Trein, Bus, Auto)',
+			'AantalPersoneel' => 'Aantal Personeel',
+			'Bereikbaarheid' => 'Bereikbaarheid',
 		);
 	}
 
@@ -106,14 +106,17 @@ class Bedrijf extends CActiveRecord
 		$criteria->compare('Postcode',$this->Postcode,true);
 		$criteria->compare('Gemeente',$this->Gemeente,true);
 		$criteria->compare('Land',$this->Land,true);
-		$criteria->compare('Tel',$this->Tel);
-		$criteria->compare('Fax',$this->Fax);
+		$criteria->compare('Tel',$this->Tel,true);
+		$criteria->compare('Fax',$this->Fax,true);
 		$criteria->compare('Website',$this->Website,true);
-		$criteria->compare('AantalPersoneel',$this->AantalPersoneel);
-		$criteria->compare('Bereikbaarheid',$this->Bereikbaarheid);
+		$criteria->compare('AantalPersoneel',$this->AantalPersoneel,true);
+		$criteria->compare('Bereikbaarheid',$this->Bereikbaarheid,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort' => array(
+                        'defaultOrder' => 'Naam ASC',
+    ),
 		));
 	}
 

@@ -3,9 +3,9 @@
 /* @var $model Begeleider */
 
 $this->breadcrumbs=array(
-	'Begeleiders'=>array('index'),
-	$model->BegeleiderID=>array('view','id'=>$model->BegeleiderID),
-	'Update',
+	'Admin'=>array('site/page&view=adminpage'),
+	'Begeleiders'=>array('begeleider/admin'),
+	'Bewerken',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Begeleider <?php echo $model->BegeleiderID; ?></h1>
+<h1>Bewerk begeleider</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -50,7 +50,7 @@
                                                 array('label'=>'Contact', 'url'=>array('/site/contact')),
 						array('label'=>'Aanmelden', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                                                array('label'=>'Admin', 'url'=>array('/adminpage'), 'visible'=>Yii::app()->getUser()->getState('account') =='Coördinator')
+                                                array('label'=>'Admin', 'url'=>array('/site/page&view=adminpage'), 'visible'=>Yii::app()->getUser()->getState('account') =='Coördinator')
                                             
 					),
 				)); ?>
@@ -78,15 +78,16 @@
 
 <div class="divide-top">
 	<footer class="grid-wrap">
-		<nav class="grid col-one-third ">
+		<nav class="grid col-one-quarter  ">
 				<?php $this->widget('zii.widgets.CMenu',array(
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/site/index')),
 						array('label'=>'Overzicht', 'url'=>array('stageplaats/index', 'view'=>'stageplaats')),
-						array('label'=>'Aanvraag', 'url'=>array('/site/contact')),
-                                                array('label'=>'Contact', 'url'=>array('stageplaats/create')),
+						array('label'=>'Aanvraag', 'url'=>array('stageplaats/create')),
+                                                array('label'=>'Contact', 'url'=>array('/site/contact')),
 						array('label'=>'Aanmelden', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+						array('label'=>'Afmelden ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                                array('label'=>'Admin', 'url'=>array('/site/page&view=adminpage'), 'visible'=>Yii::app()->getUser()->getState('account') =='Coördinator')
 					),
 				)); ?>
 		</nav>

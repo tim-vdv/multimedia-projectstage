@@ -16,7 +16,13 @@
 )); ?>
 
 	<p class="note">Velden met <span class="required">*</span> zijn verplicht.</p>
-
+	
+        <div class="row">
+		<?php echo $form->labelEx($model,'Goedgekeurd'); ?>
+		<?php echo $form->textField($model,'Goedgekeurd',array('size'=>50,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'Goedgekeurd'); ?>
+	</div>
+        
 	<?php echo $form->errorSummary($model); ?>
         	<div class="row">
 		<?php echo $form->labelEx($model,'Titel'); ?>
@@ -50,7 +56,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'Periode'); ?>
-		<?php echo $form->dropDownList($model,'Periode',array('Semester 2'=>'Semester 2','Semester 1'=>'Semester 1')); ?>
+		<?php echo $form->dropDownList($model,'Periode',array('Semester 1'=>'Semester 1','Semester 2'=>'Semester 2')); ?>
 		<?php echo $form->error($model,'Periode'); ?>
 	</div><br/>
         
