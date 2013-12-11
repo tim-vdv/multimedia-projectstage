@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Coördinators',
 );
 
-$this->menu=array(
-	array('label'=>'List Coordinator', 'url'=>array('index')),
-	array('label'=>'Create Coordinator', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

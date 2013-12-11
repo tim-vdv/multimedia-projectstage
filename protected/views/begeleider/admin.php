@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Begeleiders',
 );
 
-$this->menu=array(
-	array('label'=>'List Begeleider', 'url'=>array('index')),
-	array('label'=>'Create Begeleider', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

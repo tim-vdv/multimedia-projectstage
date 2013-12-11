@@ -8,12 +8,6 @@ $this->breadcrumbs=array(
 	'Bewerken',
 );
 
-$this->menu=array(
-	array('label'=>'List Coordinator', 'url'=>array('index')),
-	array('label'=>'Create Coordinator', 'url'=>array('create')),
-	array('label'=>'View Coordinator', 'url'=>array('view', 'id'=>$model->CoordinatorID)),
-	array('label'=>'Manage Coordinator', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Bewerk coördinator</h1>

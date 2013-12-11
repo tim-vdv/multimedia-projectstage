@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Bedrijven',
 );
 
-$this->menu=array(
-	array('label'=>'List Bedrijf', 'url'=>array('index')),
-	array('label'=>'Create Bedrijf', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

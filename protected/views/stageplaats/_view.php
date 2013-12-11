@@ -28,4 +28,4 @@
 	),
 )); ?>
 
-    <button style=" float: right">Download printversie</button><br/><br/></details>
+    <div style="float: right"><?php echo CHtml::link('Meer informatie', array('Createpdf','id'=>$data['StageID'])); ?></div><br/><br/></details>

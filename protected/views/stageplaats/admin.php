@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Stageaanvragen',
 );
 
-$this->menu=array(
-	array('label'=>'List Stageplaats', 'url'=>array('index')),
-	array('label'=>'Create Stageplaats', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

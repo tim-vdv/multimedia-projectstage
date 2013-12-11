@@ -26,7 +26,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'Omschrijving'); ?>
-		<?php echo $form->textArea($model,'Omschrijving',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textArea($model,'Omschrijving',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'Omschrijving'); ?>
 	</div>
 

@@ -8,13 +8,6 @@ $this->breadcrumbs=array(
 	'Details',
 );
 
-$this->menu=array(
-	array('label'=>'List Stageplaats', 'url'=>array('index')),
-	array('label'=>'Create Stageplaats', 'url'=>array('create')),
-	array('label'=>'Update Stageplaats', 'url'=>array('update', 'id'=>$model->StageID)),
-	array('label'=>'Delete Stageplaats', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->StageID),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Stageplaats', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Details Stageplaats</h1>
@@ -54,3 +47,4 @@ $this->menu=array(
 		'Richting',
 	),
 )); ?>
+

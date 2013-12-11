@@ -56,7 +56,6 @@ class Stageplaats extends CActiveRecord
 			array('BegeleiderID, BedrijfID, Titel, Omschrijving, Aantal, Jaar, Richting, Periode, Vrijeplaatsen, Goedgekeurd', 'required'),
 			array('BegeleiderID, BedrijfID, Aantal, Vrijeplaatsen', 'numerical', 'integerOnly'=>true),
 			array('Titel, Richting, Hardware, Beheerssysteem, DBMS, Programmeertaal, Casetool, Ontwikkelingstool, MethodiekAnalyse, MethodiekProgLogica, ConfHardware, Netwerkprotocols, GebruikteGL, OplOnderwerp, OplWanneer, oplHoeLang', 'length', 'max'=>50),
-			array('Omschrijving', 'length', 'max'=>100),
 			array('Jaar', 'length', 'max'=>15),
 			array('Periode', 'length', 'max'=>20),
 			array('Goedgekeurd', 'length', 'max'=>10),
